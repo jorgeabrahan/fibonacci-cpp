@@ -10,6 +10,24 @@ int fib_recursion(int numero)
   return fib_recursion(numero - 2) + fib_recursion(numero - 1);
 }
 
+void fib_series(int numero)
+{
+  int anteriores[2] = {0, 1};
+  cout << anteriores[0] << " " << anteriores[1] << " ";
+  if (numero < 2)
+  {
+    return;
+  }
+  int suma;
+  for (int i = 2; i <= numero; i++)
+  {
+    suma = anteriores[0] + anteriores[1];
+    anteriores[0] = anteriores[1];
+    anteriores[1] = suma;
+    cout << suma << " ";
+  }
+}
+
 int main()
 {
   cout << "SERIE FIBONACCI \n";
@@ -23,7 +41,8 @@ int main()
   } while (mostrar_hasta < 1);
 
   cout << "Resultado: " << fib_recursion(mostrar_hasta) << "\n"; // Utilizando recursividad
-
+  cout << "Serie: ";
+  fib_series(mostrar_hasta); // Utilizando bucles
   cout << "\n";
   system("pause");
   return 0;
